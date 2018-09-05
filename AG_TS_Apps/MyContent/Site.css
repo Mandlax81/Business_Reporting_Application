@@ -1,0 +1,412 @@
+﻿body {
+    background-color: #fafaea;
+}
+/*sets color of background for all forms*/
+#AddNewEntry {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: #eaeffa;
+    border-color: #eaeffa;
+    border-style: solid;
+    box-shadow: 8px 12px 50px #888888;
+    border-radius: 10px;
+}
+
+/*sets color of background*/
+#EmployeeEntries {
+    /*background: #eaeffa;
+    border-radius: 25px;
+    border-color: #d6e0f5;
+    border-style: solid;*/
+}
+/*sets color and style of heading font*/
+h2 {
+    color: #a7b1c6;
+    font-family: "Verdana", Times, serif;
+}
+
+/*formats the dividing bar*/
+hr {
+    border-color: #eaeffa;
+    border-width: 10px;
+}
+/*sets initial color of buttons*/
+#btnSave, #btnCancel, #updateButton, #deleteButton {
+    color: darkslategrey;
+    margin-left: 1%;
+    margin-bottom: 2%;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+/*sets hover effect */
+#btnSave:hover, #btnCancel:hover, #updateButton:hover, #deleteButton:hover {
+    color: #1d3030;
+    background-color: #ffcf66;
+}
+/*sets text color of labels*/
+label {
+    color: #264040;
+}
+/*sets initial color of buttons*/
+#entryDateButton, #employeeIDButton, #tsentriesbyemployeeIDButton, #tsentriesbydateandempIDButton {
+    color: darkslategrey;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    position: relative;
+    margin-bottom: 5px;
+}
+/*sets hover effect */
+#entryDateButton:hover, #employeeIDButton:hover, #tsentriesbyemployeeIDButton:hover, #tsentriesbydateandempIDButton:hover {
+    color: #1d3030;
+    background-color: #ffcf66;
+}
+.form-inline {
+    text-align: left;
+    margin-bottom: 2%;
+}
+
+thead#employeeEntries{
+    color: #264040;
+    font-weight: bold;
+    background-color: #d6e0f5;
+}
+
+/*changes color of hover-over*/
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #f0f2f4;
+}
+
+/*formats the Scroll to Top button*/
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+#myBtn:hover {
+    background-color: #555;
+}
+
+/*positions the glyphicons within the input boxes*/
+.form-control {
+    padding-right: 30px;
+}
+.form-control + .glyphicon {
+    position: absolute;
+    right: 0;
+    padding: 32px 27px;
+}
+
+/*formats the footer bar*/
+.panel-footer {
+    background-color: darkslategrey;
+    bottom: 0;
+    color: #609f9f;
+    height: 100px;
+    width: 100%;
+    height: 10%;
+    position: relative;
+}
+
+/*formats the nav bar*/
+#navBar {
+    background-color: black;
+}
+
+
+
+
+/*Equipment App elements*/
+/*Equipment Search Button elements*/
+#equipmentEntriesHeader {
+    margin-bottom: 2%;
+}
+#GetEquipmentButton, #GetEquipmentByEquipmentNumberButton {
+    position: relative;
+    margin-bottom: 5px;
+}
+#GetEquipmentInput, #GetEquipmentByEquipmentNumberInput {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*sets initial color of Equipment Search buttons*/
+#GetEquipmentButton, #GetEquipmentByEquipmentNumberButton {
+    color: darkslategrey;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+/*sets hover effect */
+#GetEquipmentButton:hover, #GetEquipmentByEquipmentNumberButton:hover {
+    color: #1d3030;
+    background-color: #ffcf66;
+}
+/*formats the table heading*/
+
+thead#allEquipment, thead#equipmentByEquipmentNumber {
+    color: #264040;
+    font-weight: bold;
+    background-color: #d6e0f5;
+    text-align: center;
+    vertical-align: middle;
+}
+/*sets color of background for form*/
+#AddNewEquipment {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: #eaeffa;
+    border-color: #eaeffa;
+    border-style: solid;
+    box-shadow: 8px 12px 50px #888888;
+    border-radius: 10px;
+}
+
+
+
+
+
+/*Employee App elements*/
+/*header*/
+#employeeHeader {
+    margin-bottom: 2%;
+}
+/*search buttons*/
+#GetEmployeesActiveButton, #GetEmployeesInactiveButton, #GetEmployeesByEmployeeIDButton, #GetEmployeesByEmployeeIDInactiveButton {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*input fields*/
+#GetEmployeesByEmployeeIDInput, #GetEmployeesByEmployeeIDInactiveInput {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+/*initial color of search buttons*/
+#GetEmployeesActiveButton, #GetEmployeesInactiveButton, #GetEmployeesByEmployeeIDButton, #GetEmployeesByEmployeeIDInactiveButton {
+    color: darkslategrey;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+/*hover effect of search buttons*/
+    #GetEmployeesActiveButton:hover, #GetEmployeesInactiveButton:hover, #GetEmployeesByEmployeeIDButton:hover, #GetEmployeesByEmployeeIDInactiveButton:hover {
+        color: #1d3030;
+        background-color: #ffcf66;
+    }
+/*table heading*/
+thead#allEmployeesActive, thead#allEmployeesInactive, thead#employeeByEmployeeIDButton, thead#employeeByEmployeeID, thead#employeeByEmployeeIDInactive {
+    color: #264040;
+    font-weight: bold;
+    background-color: #d6e0f5;
+    text-align: center;
+    vertical-align: middle;
+}
+/*sets color of background for form*/
+#AddNewEmployee {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: #eaeffa;
+    border-color: #eaeffa;
+    border-style: solid;
+    box-shadow: 8px 12px 50px #888888;
+    border-radius: 10px;
+}
+
+
+
+
+
+/*Task WO elements*/
+/*header*/
+#taskWOHeader {
+    margin-bottom: 2%;
+}
+/*search buttons*/
+#GetTaskWOButton, #GetTaskWOByTaskIDButton {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*input fields*/
+#GetTaskWOInput {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*initial color of search buttons*/
+#GetTaskWOButton, #GetTaskWOByTaskIDButton {
+    color: darkslategrey;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+/*hover effect of search buttons*/
+#GetTaskWOButton:hover, #GetTaskWOByTaskIDButton:hover {
+    color: #1d3030;
+    background-color: #ffcf66;
+}
+/*table heading*/
+thead#taskWOAll, thead#taskWOByTaskID {
+    color: #264040;
+    font-weight: bold;
+    background-color: #d6e0f5;
+    text-align: center;
+    vertical-align: middle;
+}
+/*sets color of background for form*/
+#AddNewTaskWO {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: #eaeffa;
+    border-color: #eaeffa;
+    border-style: solid;
+    box-shadow: 8px 12px 50px #888888;
+    border-radius: 10px;
+}
+
+
+
+/*Maint Ord Group elements*/
+/*header*/
+#maintOrdGroupHeader {
+    margin-bottom: 2%;
+}
+/*search buttons*/
+#GetMaintOrdGroupButton, #GetMaintOrdGroupByTA_CodeButton {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*input fields*/
+#GetMaintOrdGroupByTA_CodeInput {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*initial color of search buttons*/
+#GetMaintOrdGroupButton, #GetMaintOrdGroupByTA_CodeButton {
+    color: darkslategrey;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+/*hover effect of search buttons*/
+#GetMaintOrdGroupButton:hover, #GetMaintOrdGroupByTA_CodeButton:hover {
+    color: #1d3030;
+    background-color: #ffcf66;
+}
+/*table heading*/
+thead#maintOrdGroupAll, thead#maintOrdGroupByTA_Code {
+    color: #264040;
+    font-weight: bold;
+    background-color: #d6e0f5;
+    text-align: center;
+    vertical-align: middle;
+}
+/*sets color of background for form*/
+#AddNewMaintOrdGroup {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: #eaeffa;
+    border-color: #eaeffa;
+    border-style: solid;
+    box-shadow: 8px 12px 50px #888888;
+    border-radius: 10px;
+}
+
+
+
+
+
+/*Maint Ord Activity elements*/
+/*header*/
+#maintOrdActivityHeader {
+    margin-bottom: 2%;
+}
+/*input fields*/
+#GetMaintOrdActivityByTA_RecIDInput, #GetMaintOrdActivityByTaskInput, #GetMaintOrdActivityByTA_CodeInput {
+    position: relative;
+    margin-bottom: 5px;
+}
+/*search buttons, initial color*/
+#GetMaintOrdActivityButton, #GetMaintOrdActivityByTA_RecIDButton, #GetMaintOrdActivityByTaskButton, #GetMaintOrdActivityByTA_CodeButton {
+    position: relative;
+    margin-bottom: 5px;
+    color: darkslategrey;
+    background-color: #ffdf99;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+/*hover effect of search buttons*/
+#GetMaintOrdActivityButton:hover, #GetMaintOrdActivityByTA_RecIDButton:hover, #GetMaintOrdActivityByTaskButton:hover, #GetMaintOrdActivityByTA_CodeButton:hover {
+    color: #1d3030;
+    background-color: #ffcf66;
+}
+
+/*table heading*/
+thead#maintOrdActivityAll, thead#maintOrdActivityByTA_RecID, thead#maintOrdActivityByTask, thead#maintOrdActivityTA_CodeDistinct {
+    color: #264040;
+    font-weight: bold;
+    background-color: #d6e0f5;
+    text-align: center;
+    vertical-align: middle;
+}
+/*sets color of background for form*/
+#AddNewMaintOrdActivity {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: #eaeffa;
+    border-color: #eaeffa;
+    border-style: solid;
+    box-shadow: 8px 12px 50px #888888;
+    border-radius: 10px;
+}
+
+
+
+/*styles the navbar with bootstrap and css*/
+.nav.navbar-nav li a {
+    color: #8fbcbc;
+}
+.nav.navbar-nav li a:hover {
+    color:  #cfe2e2;
+    font-weight: bold;
+;
+}
+#navBar {
+    background-color: #1d3030;
+}
+/* Style the links */
+#linkNavBarTSEntry,
+#linkNavBarTSEquipment,
+#linkNavBarTSEmployee,
+#linkNavBarTSTaskWorkOrder,
+#linkNavBarTSMaintenanceOrderGroup,
+#linkNavBarTSMaintenanceOrderActivity,
+#linkNavBarTSReports {
+    border: none;
+    outline: none;
+    background-color: #1d3030;
+    cursor: pointer;
+}
+
+#linkNavBarTSEntry:hover,
+#linkNavBarTSEquipment:hover,
+#linkNavBarTSEmployee:hover,
+#linkNavBarTSTaskWorkOrder:hover,
+#linkNavBarTSMaintenanceOrderGroup:hover,
+#linkNavBarTSMaintenanceOrderActivity:hover,
+#linkNavBarTSEntry:hover,
+#linkNavBarTSReports:hover {
+    border: none;
+    outline: none;
+    background-color: darkslategrey;
+    cursor: pointer;
+}

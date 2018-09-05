@@ -1,0 +1,19 @@
+﻿<!--Search Equipment section-->
+
+<!--switch out tables based on the angularjs name of the button that is clicked-->
+<div class="container-condensed" ng-switch="name">
+    <!--when the button, which has the angularjs name opf GetEquipmentButton is clicked,
+        call and display/"switch to" its related table-->
+    <div ng-switch-when="GetEquipmentButton">
+        @Html.Partial("_AllEquipmentTable")
+    </div>
+    <!--the equipment by id table is loaded as the initial table, reusing the _AllEquipmentTable partial view table -->
+    <div ng-switch-when="GetEquipmentByEquipmentNumberInput">
+
+        @Html.Partial("_EquipmentByIDTable")
+    </div>
+    <!--the default table is loaded as the initial table, reusing the _AllEquipmentTable partial view table -->
+    <div ng-switch-default>
+        @Html.Partial("_AllEquipmentTable")
+    </div>
+</div>

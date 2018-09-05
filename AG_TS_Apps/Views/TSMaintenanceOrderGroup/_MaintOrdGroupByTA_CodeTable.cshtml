@@ -1,0 +1,41 @@
+﻿<!--table section -->
+<div class="container" style="overflow-x:auto;">
+    <table class="table table-condensed table-responsive table-bordered table-hover">
+        <thead id="maintOrdGroupByTA_Code">
+            <tr id="maintOrdGroupByTA_CodeHeading">
+                <!-- when you click on this heading (i.e ng-click), it sorts the indicated field. It also adds an up and down arrow with the span class-->
+                <th ng-click="sort('TA_Code')">
+                    TA Code/ID
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='TA_Code'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('MaintOrdGrp')">
+                    Maintenance Order Group
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='MaintOrdGrp'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th>
+                    Option
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--the dir-paginate controller and itemsPerPage attribute (for pagination) sets the number of items in the table-->
+            <!--loop through object data and print it out, with only 10 items per page,
+            and allow sorting-->
+            <tr dir-paginate="MaintOrdGroup in maintordgroupbyta_code|itemsPerPage:10|orderBy:sortKey:reverse">
+                <td>{{MaintOrdGroup.TA_Code}}</td>
+                <td>{{MaintOrdGroup.MaintOrdGrp}}</td>
+                <td>
+                    <div class="btn btn-group-sm btn-block">
+                        <input onclick="topFunction()" class="btn" id="updateButton" type="button" value="update" ng-click="UpdateMaintOrdGroup(MaintOrdGroup)" />
+                        <input class="btn" id="deleteButton" type="button" value="delete" ng-click="DeleteMaintOrdGroup(MaintOrdGroup)" />
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--controls to paginate through data-->
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+</div>

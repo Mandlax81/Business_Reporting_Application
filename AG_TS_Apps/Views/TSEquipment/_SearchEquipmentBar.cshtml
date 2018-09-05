@@ -1,0 +1,25 @@
+﻿<br />
+<div class="container">
+    <!--Heading-->
+    <h2 id="equipmentEntriesHeader">All Equipment</h2>
+
+    <!--makes input divs inline-->
+    <form class="form-inline">
+        <!--click on the button to get all of the equipment data, which will then be displayed in a table-->
+        <button id="GetEquipmentButton" name="GetEquipmentButton" type="submit" class="btn btn-default" ng-click="GetEquipment(); name = 'GetEquipmentButton'">All Equipment</button>
+
+
+
+        <!--input/select from equipment id, get all equipment data by it's id-->
+        <div class="form-group">
+            <label class="sr-only" for="GetEquipmentByEquipmentNumberInput">Search Equipment</label>
+            <input id="GetEquipmentByEquipmentNumberInput" class="form-control" list="Get_Equipment_By_Equipment_Number_Input" name="Get_Equipment_By_Equipment_Number_Input" placeholder="12345678 or Name" ng-model="EquipmentNumber">
+
+            <datalist name="Get_Equipment_By_Equipment_Number_Input" id="Get_Equipment_By_Equipment_Number_Input">
+                <option value="{{Equipment.EquipmentNumber}}" ng-repeat="Equipment in tsequipment"> {{Equipment.EquipNumAndDesc}}</option>
+            </datalist>
+        </div>
+
+        <button id="GetEquipmentByEquipmentNumberButton" type="submit" class="btn btn-default" ng-click="GetEquipmentByEquipmentNumber(); name = 'GetEquipmentByEquipmentNumberInput'">Equipment By ID</button>
+    </form>
+</div>

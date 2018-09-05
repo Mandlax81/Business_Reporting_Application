@@ -1,0 +1,42 @@
+﻿<br />
+    <div class="container">
+        <!--Heading-->
+        <h2 id="employeeHeader">Active Employees</h2>
+
+        <!--makes input divs inline-->
+        <form class="form-inline">
+            <div class="form-group">
+            </div>
+            <!--click on the button to get all of the active employee data, which will then be displayed in a table. Also, the name attibute, within the ng-click attribute, defines the switch name to use for the tables-->
+            <button id="GetEmployeesActiveButton" name="GetEmployeesActiveButton" type="submit" class="btn btn-default" ng-click="GetEmployeesActive(); name = 'GetEmployeesActiveButton'">Active Employees</button>
+
+            <!--input/select from employee id, get all employee data by it's id-->
+            <div class="form-group">
+                <label class="sr-only" for="GetEmployeesByEmployeeIDInput">Search Employee</label>
+                <input id="GetEmployeesByEmployeeIDInput" class="form-control" list="Get_Employees_By_Employee_ID_Input" name="Get_Employees_By_Employee_ID_Input" placeholder="12345678 or Name" ng-model="EmployeeID">
+                <datalist name="Get_Employees_By_Employee_ID_Input" id="Get_Employees_By_Employee_ID_Input">
+                    <option value="{{Employee.EmployeeID}}" ng-repeat="Employee in tsemployeesactive"> {{Employee.IDandName}}</option>
+                </datalist>
+            </div>
+            <button id="GetEmployeesByEmployeeIDButton" name="GetEmployeesByEmployeeIDButton" type="submit" class="btn btn-default" ng-click="GetEmployeesByEmployeeID(); name = 'GetEmployeesByEmployeeIDButton'">Active ID</button>
+
+            <div class="form-group"></div>
+
+            <!--click on the button to get all of the active employee data, which will then be displayed in a table-->
+            <button id="GetEmployeesInactiveButton" name="GetEmployeesInactiveButton" type="submit" class="btn btn-default" ng-click="GetEmployeesInactive(); name = 'GetEmployeesInactiveButton'">Inactive Employees</button>
+
+            <!--input/select from employee id, get all employee data by it's id-->
+            <div class="form-group">
+                <label class="sr-only" for="GetEmployeesByEmployeeIDInactiveInput">Search Employee</label>
+                <input id="GetEmployeesByEmployeeIDInactiveInput" class="form-control" list="Get_Employees_By_Employee_ID_Inactive_Input" name="Get_Employees_By_Employee_ID_Inactive_Input" placeholder="12345678 or Name" ng-model="EmployeeID">
+                <datalist name="Get_Employees_By_Employee_ID_Inactive_Input" id="Get_Employees_By_Employee_ID_Inactive_Input">
+                    <option value="{{Employee.EmployeeID}}" ng-repeat="Employee in tsemployeesinactive"> {{Employee.IDandName}}</option>
+                </datalist>
+            </div>
+            <button id="GetEmployeesByEmployeeIDInactiveButton" name="GetEmployeesByEmployeeIDInactiveButton" type="submit" class="btn btn-default" ng-click="GetEmployeesByEmployeeIDInactive(); name = 'GetEmployeesByEmployeeIDInactiveButton'">Inactive ID</button>
+
+
+        </form>
+    </div>
+
+

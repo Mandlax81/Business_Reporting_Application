@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<!--Head Partial View. Loads all of the scripts-->
+@Html.Partial("_Head")
+
+<!--ng-app defines the "container where all your angular backend code will be able to work on the elements-->
+<body ng-app="taskWorkOrderApp">
+
+    <!--button that when clicked scrolls to the top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!--Navigation Bar Partial View-->
+    @Html.Partial("_NavigationBar")
+
+    <!--Add Task Work Order section, nested within principle div, as the principle div defines the controller I will use-->
+    <!--loads all task work order data for the table-->
+    <!--loads the distinct task types for the input dropdown-->
+    <!--loads the distinct expense types for the input dropdown-->
+    <div ng-controller="taskWorkOrderCtrl" ng-init="GetTaskWO();
+                                                    GetTaskType();
+                                                    GetExpenseType();         
+                                                    ">
+        
+        <!--Add Form Partial View-->
+        @Html.Partial("_AddTaskWO")
+        
+        <!--Search Task/WO Partial View-->
+        @Html.Partial("_SearchTaskWOBar")
+
+        <!--Tables View-->
+        @Html.Partial("_TaskWOTables")
+
+    </div>
+
+
+</body>
+<!--Footer Bar Partial View-->
+@Html.Partial("_FooterBar")
+</html>

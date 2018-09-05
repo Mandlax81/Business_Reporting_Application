@@ -1,0 +1,98 @@
+﻿<div class="container" id="AddNewEquipment" role="form">
+    <form name="AddNewEquipmentForm">
+            <h2 id="AddUpdateNewEquipmentHeader">Add Equipment</h2><!--header will be changed to Update when update button is clicked, logic in the AngularJS backend-->
+            <!--new row and groups within row-->
+            <div class="form-row">
+                <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+                <div class="form-group col-md-6">
+                    <label for="EquipmentNumber">Equipment Number</label>
+                    <input class="form-control" type="text" name="EquipmentNumber" id="EquipmentNumber" ng-model="EquipmentNumber" placeholder="12345678" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="TechID">Tech ID</label>
+                    <input class="form-control" type="text" name="TechID" id="TechID" ng-model="TechID" placeholder="12345" required>
+                </div>
+            </div>
+
+            <!--new row and groups within row-->
+            <div class="form-row">
+                <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+                <div class="form-group col-md-6">
+                    <label for="CostCenter">Cost Center</label>
+                    <input class="form-control" type="text" name="CostCenter" id="CostCenter" ng-model="CostCenter" placeholder="123456" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="EquipDescription">Equip Description</label>
+                    <input class="form-control" type="text" name="EquipDescription" id="EquipDescription" ng-model="EquipDescription" placeholder="Equip Description" required>
+                </div>
+            </div>
+
+            <!--new row and groups within row-->
+            <div class="form-row">
+                <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+                <div class="form-group col-md-6">
+                    <label for="EquipType">Equip Type</label>
+                    <input class="form-control" type="text" name="EquipType" id="EquipType" ng-model="EquipType" placeholder="Equip Type" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="UserStatus">User Status</label>
+                    <input class="form-control" type="text" name="UserStatus" id="UserStatus" ng-model="UserStatus" placeholder="User Status" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="FunctionalLocation">Functional Location</label>
+                    <input class="form-control" type="text" name="FunctionalLocation" id="FunctionalLocation" ng-model="FunctionalLocation" placeholder="Functional Location" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="FuncLocDescription">Func Loc Description</label>
+                    <input class="form-control" type="text" name="FuncLocDescription" id="FuncLocDescription" ng-model="FuncLocDescription" placeholder="Func Loc Description" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="EquipClass">Equip Class</label>
+                    <input class="form-control" type="text" name="EquipClass" id="EquipClass" ng-model="EquipClass" placeholder="Equip Class" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="WorkCenter">Work Center</label>
+                    <input class="form-control" type="text" name="WorkCenter" id="WorkCenter" ng-model="WorkCenter" placeholder="Work Center" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ActivityType">Activity Type</label>
+                    <input class="form-control" type="text" name="ActivityType" id="ActivityType" ng-model="ActivityType" placeholder="Activity Type" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="MeasurementPoint">Measurement Point</label>
+                    <input class="form-control" type="text" name="MeasurementPoint" id="MeasurementPoint" ng-model="MeasurementPoint" placeholder="Measurement Point">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="MeasurementPoint">Equipment Or Implement</label>
+                    <input class="form-control" list="Equipment_Or_Implement" type="text" name="Equipment_Or_Implement" id="EquipmentOrImplement" ng-model="EquipmentOrImplement" placeholder="E or I" required>
+                    <!--dropdown allowing user to select either E or I. This is hardcoded, but can be changed in the backend to return only distinct values-->
+                    <datalist name="Equipment_Or_Implement" id="Equipment_Or_Implement">
+                        <option value="{{Equipment.EquipmentOrImplement}}" ng-repeat="Equipment in tsequipmentbytype"> {{Equipment.EquipmentOrImplement}}</option>
+                    </datalist>
+                </div>
+                <div class="form-group col-md-6 form-check">
+                    <label for="Active">Active</label>
+                    <input class="form-check-input form-control" type="checkbox" name="Active" id="Active" ng-model="Active" placeholder="">
+                </div>
+            </div>
+            <div>
+                <!--on button click, calls AngularJS InsertEquipment() method -->
+                <input class="btn btn-md col-sm pull-right" type="submit" id="btnSave" value="Submit" ng-click="InsertEquipment()" />
+                <!--on button click, calls AngularJS CancelEquipment() method -->
+                <input class="btn btn-md col-sm pull-right" type="button" id="btnCancel" value="Cancel" ng-click="CancelEquipment()" />
+            </div>
+        </form>
+</div>

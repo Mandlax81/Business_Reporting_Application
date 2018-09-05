@@ -1,0 +1,29 @@
+﻿<br />
+    <div class="container">
+        <!--Heading-->
+        <h2 id="taskWOHeader">Tasks/Work Orders</h2>
+
+        <!--makes input divs inline-->
+        <form class="form-inline">
+            <div class="form-group">
+            </div>
+
+            <!--click on the button to get all of the task/wo data, which will then be displayed in a table-->
+            <button id="GetTaskWOButton" name="GetTaskWOButton" type="submit" class="btn btn-default" ng-click="GetTaskWO(); name = 'GetTaskWOButton'">Task/WO</button>
+
+            <!--input/select from task/wo id, get all task/wo data by it's id-->
+            <div class="form-group">
+                <label class="sr-only" for="GetTaskWOInput">Search Task/WO</label>
+                <input id="GetTaskWOInput" class="form-control" list="Get_Task_WO_Input" name="Get_Task_WO_Input" placeholder="Task/WO Id or Name" ng-model="Task_WO_ID">
+                <datalist name="Get_Task_WO_Input" id="Get_Task_WO_Input">
+                    <option value="{{TaskWO.Task_WO_ID}}" ng-repeat="TaskWO in tstaskwo"> {{TaskWO.TaskWO}}</option>
+                </datalist>
+            </div>
+            <!--the name = 'GetTaskWOByTaskIDButton' relates to your switch button-->
+            <button id="GetTaskWOByTaskIDButton" name="GetTaskWOByTaskIDButton" type="submit" class="btn btn-default" ng-click="GetTaskWOByTaskID(); name = 'GetTaskWOByTaskIDButton'">Search</button>
+
+            <span id="GetTaskWOInput_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+        </form>
+    </div>
+
+

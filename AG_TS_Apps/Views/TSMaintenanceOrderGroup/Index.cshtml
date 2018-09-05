@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+
+<!--Head Partial View. Loads all of the scripts-->
+@Html.Partial("_Head")
+
+<!--ng-app defines the "container where all your angular backend code will be able to work on the elements-->
+<body ng-app="maintenanceOrderGroupApp">
+
+    <!--button that when clicked scrolls to the top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!--Navigation Bar Partial View-->
+    @Html.Partial("_NavigationBar")
+
+    <!--Add Maintenance Order Group section, nested within principle div, as the principle div defines the controller I will use-->
+
+
+    <div ng-controller="maintenanceOrderGroupCtrl" ng-init="GetMaintOrdGroup();">
+
+        <!--Add Form Partial View-->
+        @Html.Partial("_Add_MaintOrdGroup")
+
+        <!--Search Partial View-->
+        @Html.Partial("_SearchMaintOrdGroupBar")
+
+        <!--Tables View-->
+        @Html.Partial("_MaintOrdGroupSwitchTables")
+
+    </div>
+
+
+</body>
+<!--Footer Bar Partial View-->
+@Html.Partial("_FooterBar")
+</html>

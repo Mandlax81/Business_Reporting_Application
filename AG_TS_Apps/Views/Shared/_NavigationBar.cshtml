@@ -1,0 +1,28 @@
+﻿<!--adds the navbar on each page-->
+<div id="navBar" class="navbar navbar-inverse navbar-sticky-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!--provides a button when the navbar is zoomed in far enough-->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Html.ActionLink structure: (1) Name of Application, (2) HTML page, (3) Controller
+            http://localhost:52837/TSEntry/Index
+            -->
+        </div>
+        <div class="navbar-collapse collapse" id="navBarDiv">
+            <ul id="navBarText" class="nav navbar-nav">
+                <!--makes the TimeSheet the main heading-link-->
+                <li id="linkNavBarTSEntry">@Html.ActionLink("TimeSheet", "Index", "TSEntry")</li>
+                <li id="linkNavBarTSEquipment">@Html.ActionLink("Equipment", "Index", "TSEquipment")</li>
+                <li id="linkNavBarTSEmployee">@Html.ActionLink("Employee", "Index", "TSEmployee")</li>
+                <li id="linkNavBarTSTaskWorkOrder">@Html.ActionLink("Task Work Order", "Index", "TSTaskWorkOrder")</li>
+                <li id="linkNavBarTSMaintenanceOrderGroup">@Html.ActionLink("Maintenance Order Group", "Index", "TSMaintenanceOrderGroup")</li>
+                <li id="linkNavBarTSMaintenanceOrderActivity">@Html.ActionLink("Maintenance Order Activity", "Index", "TSMaintenanceOrderActivity")</li>
+                <li id="linkNavBarTSReports">@Html.ActionLink("Reports", "Index", "TSReports")</li>
+            </ul>
+        </div>
+    </div>
+</div>

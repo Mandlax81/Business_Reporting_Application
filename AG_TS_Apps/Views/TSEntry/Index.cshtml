@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<!--imports just the script for the TSEntry index page. No other apps need the datepicker, or its related functions-->
+<script src="~/MyScripts/javascript/DatePickerDefaultPreviousDate.js"></script>
+<html>
+<!--Head Partial View. Loads all of the scripts-->
+@Html.Partial("_Head")
+
+<!--ng-app defines the "container where all your angular backend code will be able to work on the elements-->
+<body ng-app="myApp">
+
+    <!--button that when clicked scrolls to the top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!--Navigation Bar Partial View-->
+    @Html.Partial("_NavigationBar")
+
+    <!--Add Entry section, nested within principle div, as the principle div defines the controller I will use-->
+    <!--loads previous days' data on initial page-->
+    <div ng-controller="myCtrl" ng-init="GetActiveEmployees();
+                                         GetTaskWONumbers();
+                                         GetProductionZones();
+                                         GetFields();
+                                         GetEquipment();
+                                         GetImplement();
+                                         GetTimeSheetEntriesByPreviousDate();
+                                         ">
+
+        <!--Add Entry Partial View-->
+        @Html.Partial("_AddEntry")
+
+        @*<hr id="dividingLine">*@
+        <br />
+
+        @Html.Partial("_EmployeeEntry")
+
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+<!--Footer Bar Partial View-->
+@Html.Partial("_FooterBar")
+</html>

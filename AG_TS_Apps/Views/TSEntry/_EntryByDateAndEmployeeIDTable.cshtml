@@ -1,0 +1,91 @@
+﻿<!--when the name is the entries by date and employeeID...-->
+<div ng-switch-when="tsentriesbydateandempIDButton">
+    <!--print out that table-->
+    <!--table section -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead id="employeeEntries">
+                <tr id="tableHeading">
+                    <th ng-click="sort('TSEntryID')">
+                        Entry ID<!--allow sorting by property, ascending and descending-->
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='TSEntryID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('EmployeeID')">
+                        Employee ID
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='EmployeeID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('Date')">
+                        Entry Date
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='Date'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('StartTime')">
+                        Start Time
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='StartTime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('EndTime')">
+                        End Time
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='EndTime'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('ProdZoneID')">
+                        Prod Zone ID
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='ProdZoneID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('EquipmentMeterReading')">
+                        Meter Reading
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='EquipmentMeterReading'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('EquipmentNumber')">
+                        Equipment Number
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='EquipmentNumber'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('ImplementNumber')">
+                        Implement #
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='ImplementNumber'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('Task_WO_ID')">
+                        Task WO ID
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='Task_WO_ID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th ng-click="sort('FieldNumber')">
+                        Field #
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='FieldNumber'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </th>
+                    <th>
+                        Option
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--entries by date and employeeID table-->
+                @*<tr ng-repeat="TSEntry in tsentries">*@
+                <tr dir-paginate="TSEntry in tsentriesbydateandempid|orderBy:sortKey:reverse|filter:searchText|itemsPerPage:10">
+                    <!--allows us to loop through and paginate data-->
+                    @*<tr ng-repeat="TSEntry in tsentries | orderBy:sortKey:reverse | filter:searchText">*@
+                    <td>{{TSEntry.TSEntryID}}</td>
+                    <td>{{TSEntry.EmployeeID}}</td>
+                    <td>{{TSEntry.Date | date:'MM-dd-yyyy'}}</td><!--just formats the visual, not the data for the update and delete sections-->
+                    <td>{{TSEntry.StartTime | date:'hh:mm a'}}</td>
+
+                    <td>{{TSEntry.EndTime | date:'hh:mm a'}}</td>
+                    <td>{{TSEntry.ProdZoneID}}</td>
+                    <td>{{TSEntry.EquipmentMeterReading}}</td>
+                    <td>{{TSEntry.EquipmentNumber}}</td>
+                    <td>{{TSEntry.ImplementNumber}}</td>
+                    <td>{{TSEntry.Task_WO_ID}}</td>
+                    <td>{{TSEntry.FieldNumber}}</td>
+                    <td>
+                        <div class="btn btn-group-sm btn-block">
+                            <input onclick="topFunction()" class="btn" id="updateButton" type="button" value="update" ng-click="UpdateTSEntry(TSEntry)" /><!--on click, either update or delete whole employee object-->
+                            <input class="btn" id="deleteButton" type="button" value="delete" ng-click="DeleteTSEntry(TSEntry)" />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--controls to paginate through data-->
+        <dir-pagination-controls max-size="5"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+    </div>
+</div>

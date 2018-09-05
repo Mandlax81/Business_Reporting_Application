@@ -1,0 +1,30 @@
+﻿<!--Tables section-->
+<!--switch out tables based on the angularjs name of the button that is clicked-->
+<div class="container-condensed" ng-switch="name">
+    <!--when the button, which has the angularjs name of "Whatever" is clicked,
+        call and display/"switch to" its related table-->
+    <!--switch to all "Whatever" tables-->
+    <div ng-switch-when="GetMaintOrdActivityButton">
+        @Html.Partial("_MaintOrdActivityAllTable")
+    </div>
+
+    <!--switch to MaintOrdActivityByTA_RecID table-->
+    <div ng-switch-when="GetMaintOrdActivityByTA_RecIDButton">
+        @Html.Partial("_MaintOrdActivityByTA_RecIDTable")
+    </div>
+
+    <!--switch to MaintOrdActivityByTask table-->
+    <div ng-switch-when="GetMaintOrdActivityByTaskButton">
+        @Html.Partial("_MaintOrdActivityByTaskTable")
+    </div>
+
+    <!--switch to MaintOrdActivityByTA_Code table-->
+    <div ng-switch-when="GetMaintOrdActivityByTA_CodeButton">
+        @Html.Partial("_MaintOrdActivityByTA_CodeDistinctTable")
+    </div>
+
+    <!--switch to default table, loaded on initial page-load, reusing the maintenance order activities table-->
+    <div ng-switch-default>
+        @Html.Partial("_MaintOrdActivityAllTable")
+    </div>
+</div>

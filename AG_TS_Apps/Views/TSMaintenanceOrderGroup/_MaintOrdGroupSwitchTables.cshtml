@@ -1,0 +1,20 @@
+﻿<!--Tables section-->
+<!--switch out tables based on the angularjs name of the button that is clicked-->
+<div class="container-condensed" ng-switch="name">
+    <!--when the button, which has the angularjs name of "Whatever" is clicked,
+        call and display/"switch to" its related table-->
+    <!--switch to all task/WO table-->
+    <div ng-switch-when="GetMaintOrdGroupButton">
+        @Html.Partial("_MaintOrdGroupAllTable")
+    </div>
+
+    <!--switch to MaintOrdGroup by Id table-->
+    <div ng-switch-when="GetMaintOrdGroupByTA_CodeButton">
+        @Html.Partial("_MaintOrdGroupByTA_CodeTable")
+    </div>
+
+    <!--switch to default table, loaded on initial page-load, reusing the active employees table-->
+    <div ng-switch-default>
+        @Html.Partial("_MaintOrdGroupAllTable")
+    </div>
+</div>

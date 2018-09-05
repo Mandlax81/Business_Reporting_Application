@@ -1,0 +1,104 @@
+﻿<!--table section -->
+<div class="container" style="overflow-x:auto;">
+    <table class="table table-condensed table-responsive table-bordered table-hover">
+        <thead id="employeeByEmployeeIDInactive">
+            <tr id="employeeByEmployeeIDInactiveHeading">
+                <!-- when you click on this heading (i.e ng-click), it sorts the indicated field. It also adds an up and down arrow with the span class-->
+                <th ng-click="sort('EmployeeID')">
+                    Emp ID
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='EmployeeID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('ShortEmployeeID')">
+                    Short ID
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='ShortEmployeeID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('EmployeeName')">
+                    Emp Name
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='EmployeeName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+
+                <th ng-click="sort('CostCtr')">
+                    Cost Ctr
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='CostCtr'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('CostCenter')">
+                    Cost Ctr Desc
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='CostCenter'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('OrganizationalUnit')">
+                    Org Unit
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='OrganizationalUnit'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('EmployeeSubGroup')">
+                    Emp Sub Group
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='EmployeeSubGroup'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('Job')">
+                    Job
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Job'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('PSubArea')">
+                    P Sub Area
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='PSubArea'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('PersonnelSubArea')">
+                    Pers Sub Area
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='PersonnelSubArea'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('EmployeeGroup')">
+                    Emp Group
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='EmployeeGroup'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('ActivityType')">
+                    Actv Type
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='ActivityType'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('WorkCenter')">
+                    Work Ctr
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='WorkCenter'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('Active')">
+                    Active
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Active'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th>
+                    Option
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--the dir-paginate controller and itemsPerPage attribute (for pagination) sets the number of items in the table-->
+            <!--loop through object data and print it out, with only 10 items per page,
+                and allow sorting-->
+            <tr dir-paginate="Employee in tsemployeesbyemployeeidinactive|itemsPerPage:10|orderBy:sortKey:reverse">
+                <td>{{Employee.EmployeeID}}</td>
+                <td>{{Employee.ShortEmployeeID}}</td>
+                <td>{{Employee.EmployeeName}}</td>
+                <td>{{Employee.CostCtr}}</td>
+                <td>{{Employee.CostCenter}}</td>
+                <td>{{Employee.OrganizationalUnit}}</td>
+                <td>{{Employee.EmployeeSubGroup}}</td>
+                <td>{{Employee.Job}}</td>
+                <td>{{Employee.PSubArea}}</td>
+                <td>{{Employee.PersonnelSubArea}}</td>
+                <td>{{Employee.EmployeeGroup}}</td>
+                <td>{{Employee.ActivityType}}</td>
+                <td>{{Employee.WorkCenter}}</td>
+                <td>{{Employee.Active}}</td>
+                <td>
+                    <div class="btn btn-group-sm btn-block">
+                        <input onclick="topFunction()" class="btn" id="updateButton" type="button" value="update" ng-click="UpdateEmployee(Employee)" />
+                        @*<input class="btn" id="deleteButton" type="button" value="delete" ng-click="DeleteEmployee(Employee)" />*@
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--controls to paginate through data-->
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+</div>
+
+

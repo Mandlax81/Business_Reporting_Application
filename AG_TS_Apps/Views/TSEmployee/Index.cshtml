@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+
+<!--Head Partial View. Loads all of the scripts-->
+@Html.Partial("_Head")
+
+<!--ng-app defines the "container where all your angular backend code will be able to work on the elements-->
+<body ng-app="employeeApp">
+
+    <!--button that when clicked scrolls to the top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!--Navigation Bar Partial View-->
+    @Html.Partial("_NavigationBar")
+
+    <!--Add Employee section, nested within principle div, as the principle div defines the controller I will use-->
+    <!--loads all active employees' data for the initial-load table-->
+    <!--loads all employees' data, active and inactive, for the search area->employee By ID input dropdown. The user needs to be able to select from all employees-->
+    <div ng-controller="employeeCtrl" ng-init="GetEmployeesActive();
+                                               GetEmployeesInactive();
+                                               GetEmployeesAll();
+                                               ">
+
+        <!--Add Employee Partial View-->
+        @Html.Partial("_AddEmployee")
+        <!--Search Employee Partial View-->
+        @Html.Partial("_SearchEmployeeBar")
+        <!--All Tables Partial View. This partial view will also contain sub-tables-->
+        @Html.Partial("_EmployeeTables")
+    </div>
+
+
+</body>
+<!--Footer Bar Partial View-->
+@Html.Partial("_FooterBar")
+</html>

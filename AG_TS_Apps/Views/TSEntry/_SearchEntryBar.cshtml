@@ -1,0 +1,27 @@
+﻿<!--search section-->
+<form class="form-inline">
+    <!--TODO add a glyphicon date inside the search box-->
+    <div class="form-group" id="entryDateDiv">
+        <label class="sr-only">Entry Date</label>
+        <label>
+            <input class="form-control" id="DatePickerSearch" type="text" placeholder="00-00-0000 Entry Date" ng-model="Date">
+        </label>
+        <i class="glyphicon glyphicon-calendar col-md-pull-2"></i>
+    </div>
+    <input name="entryDateButton" class="btn btn-md col-sm" type="submit" id="entryDateButton" value="Search Date" ng-click="GetTimeSheetEntriesByDate(); name = 'entryDateButton'; " />
+
+    <div class="form-group" id="tsentriesbyemployeeIDDiv">
+        <label class="sr-only" for="EmployeeID">Employee ID</label>
+        <input class="form-control" list="Employee_ID" name="Employee_ID" type="text" id="EmployeeID" ng-model="EmployeeID" placeholder="00000000 or Name">
+        <datalist name="Employee_ID" id="Employee_ID">
+            <option value="{{ActiveEmployees.EmployeeID}}" ng-repeat="ActiveEmployees in tsactiveemployees">
+                {{ActiveEmployees.IDandName}}
+            </option>
+        </datalist>
+    </div>
+    <input name="tsentriesbyemployeeIDButton" class="btn btn-md col-sm" type="submit" id="tsentriesbyemployeeIDButton" value="Search ID" ng-click="GetTSEntriesByEmployeeID(); name = 'tsentriesbyemployeeIDButton'" />
+    <!--get ts entries by id and date button-->
+    <div class="form-group" id="tsentriesbydateandempID">
+    </div>
+    <input name="tsentriesbydateandempIDButton" class="btn btn-md col-sm" type="submit" id="tsentriesbydateandempIDButton" value="Search Date & ID" ng-click="GetTimeSheetEntriesByDateandEmpID(); name = 'tsentriesbydateandempIDButton'" />
+</form>

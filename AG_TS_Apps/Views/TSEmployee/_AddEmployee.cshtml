@@ -1,0 +1,98 @@
+﻿<div class="container" id="AddNewEmployee" role="form">
+    <form name="AddNewEmployeeForm">
+        <h2 id="AddUpdateNewEmployeeHeader">Add Employee</h2><!--header will be changed to Update when update button is clicked, logic in the AngularJS backend-->
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="EmployeeID">Employee ID</label>
+                <input class="form-control" type="text" name="EmployeeID" id="EmployeeID" ng-model="EmployeeID" placeholder="12345678" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ShortEmployeeID">Short Employee ID</label>
+                <input class="form-control" type="text" name="ShortEmployeeID" id="ShortEmployeeID" ng-model="ShortEmployeeID" placeholder="12345">
+            </div>
+        </div>
+
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="EmployeeName">Employee Name</label>
+                <input class="form-control" type="text" name="EmployeeName" id="EmployeeName" ng-model="EmployeeName" placeholder="123456" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="CostCtr">Cost Center</label>
+                <input class="form-control" type="text" name="CostCtr" id="CostCtr" ng-model="CostCtr" placeholder="Cost Center" required>
+            </div>
+        </div>
+
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="CostCenter">Cost Center Description</label>
+                <input class="form-control" type="text" name="CostCenter" id="CostCenter" ng-model="CostCenter" placeholder="Cost Center Description" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="OrganizationalUnit">Organizational Unit</label>
+                <input class="form-control" type="text" name="OrganizationalUnit" id="OrganizationalUnit" ng-model="OrganizationalUnit" placeholder="Organizational Unit" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="EmployeeSubGroup">Employee Sub-Group</label>
+                <input class="form-control" type="text" name="EmployeeSubGroup" id="EmployeeSubGroup" ng-model="EmployeeSubGroup" placeholder="Employee Sub-Group" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Job">Job</label>
+                <input class="form-control" type="text" name="Job" id="Job" ng-model="Job" placeholder="Job" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="PSubArea">P Sub-Area</label>
+                <input class="form-control" type="text" name="PSubArea" id="PSubArea" ng-model="PSubArea" placeholder="P Sub-Area" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="PersonnelSubArea">Personnel Sub-Area</label>
+                <input class="form-control" type="text" name="PersonnelSubArea" id="PersonnelSubArea" ng-model="PersonnelSubArea" placeholder="Personnel Sub-Area" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="EmployeeGroup">Employee Group</label>
+                <input class="form-control" type="text" name="EmployeeGroup" id="EmployeeGroup" ng-model="EmployeeGroup" placeholder="Employee Group" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ActivityType">Activity Type</label>
+                <input class="form-control" type="text" name="ActivityType" id="ActivityType" ng-model="ActivityType" placeholder="Activity Type">
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="WorkCenter">Work Center</label>
+                <input class="form-control" type="text" name="WorkCenter" id="WorkCenter" ng-model="WorkCenter" placeholder="Work Center">
+            </div>
+
+
+
+
+            <div class="form-group col-md-6 form-check">
+                <label for="Active">Active</label>
+                <input class="form-check-input form-control" type="checkbox" name="Active" id="Active" ng-model="Active" placeholder="">
+            </div>
+        </div>
+        <div>
+            <!--on button click, calls AngularJS InsertEquipment() method -->
+            <input class="btn btn-md col-sm pull-right" type="submit" id="btnSave" value="Submit" ng-click="InsertEmployee()" />
+            <!--on button click, calls AngularJS CancelEquipment() method -->
+            <input class="btn btn-md col-sm pull-right" type="button" id="btnCancel" value="Cancel" ng-click="CancelEmployee()" />
+        </div>
+    </form>
+</div>

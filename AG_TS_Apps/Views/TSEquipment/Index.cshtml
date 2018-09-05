@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+
+<!--Head Partial View. Loads all of the scripts-->
+@Html.Partial("_Head")
+
+<!--ng-app defines the "container where all your angular backend code will be able to work on the elements-->
+<body ng-app="equipmentApp">
+
+    <!--button that when clicked scrolls to the top-->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+    <!--Navigation Bar Partial View-->
+    @Html.Partial("_NavigationBar")
+
+    <!--Add Equipment section, nested within principle div, as the principle div defines the controller I will use-->
+    <div ng-controller="equipmentCtrl" ng-init="GetEquipment();
+                                                GetEquipmentByType();
+                                                ">
+        <!--Add Equipment Partial View-->
+        @Html.Partial("_AddEquipment")
+        <!--Search Equipment Partial View-->
+        @Html.Partial("_SearchEquipmentBar")
+        <!--Equipment Tables Partial View-->
+        @Html.Partial("_EquipmentTables")
+    </div>
+</body>
+<!--Footer Bar Partial View-->
+@Html.Partial("_FooterBar")
+</html>

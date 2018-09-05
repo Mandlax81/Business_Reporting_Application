@@ -1,0 +1,104 @@
+﻿<!--only set the datetime to the previous day in the TimeSheet View-->
+@section Scripts
+{
+    <script src="~/MyScripts/javascript/DatePickerDefaultPreviousDate.js"></script>
+}
+
+<div class="container" id="AddNewEntry" role="form">
+    <form name="AddNewEntryForm">
+        <h2 id="AddUpdateNewEntryHeader">Add Entry</h2><!--header will be changed to Update when update button is clicked, logic in the AngularJS backend-->
+
+        @Html.Hidden("TSEntryID")<!--Captures the TSEntryID, but makes it hidden from the client-->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Entry Date</label>
+                <input class="form-control" name="Date" type="text" id="DatePicker" ng-model="Date" placeholder="MM-DD-YYYY" required>
+                <span class="glyphicon glyphicon-calendar"></span>
+            </div>
+
+
+
+       <div class="form-group col-md-6">
+            <label>Employee ID</label>
+            <input class="form-control" list="Employee_ID" name="Employee_ID" type="text" id="EmployeeID" ng-model="EmployeeID" placeholder="12345678 or Name" required>
+            <datalist name="Employee_ID" id="Employee_ID">
+                <option value="{{ActiveEmployees.EmployeeID}}" ng-repeat="ActiveEmployees in tsactiveemployees">
+                    {{ActiveEmployees.IDandName}}
+                </option>
+            </datalist>
+        </div>
+
+        </div>
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Start Time</label>
+                <input class="form-control" type="text" name="StartTime" id="StartTime" placeholder="HH:MM AM" ng-model="StartTime" required>
+                <span class="glyphicon glyphicon-time"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>End Time</label>
+                <input class="form-control" type="text" name="EndTime" id="EndTime" placeholder="HH:MM PM" ng-model="EndTime" required>
+                <span class="glyphicon glyphicon-time"></span>
+            </div>
+        </div>
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Task WO ID</label>
+                <input class="form-control" list="TaskWO_ID" name="Task_WO_ID" type="text" id="Task_WO_ID" ng-model="Task_WO_ID" placeholder="12345 or Task" required>
+                <datalist name="TaskWO_ID" id="TaskWO_ID">
+                    <option value="{{TaskWONumbers.Task_WO_ID}}" ng-repeat="TaskWONumbers in tstaskwonumbers">
+                        {{TaskWONumbers.TaskDescription}}
+                    </option>
+                </datalist>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Prod Zone ID</label>
+                <input class="form-control" list="ProdZone_ID" name="ProdZoneID" type="text" id="ProdZoneID" ng-model="ProdZoneID" placeholder="123456 or Description" required>
+                <datalist name="ProdZone_ID" id="ProdZone_ID">
+                    <option value="{{ProductionZones.ProdZoneID}}" ng-repeat="ProductionZones in tsproductionzones">
+                        {{ProductionZones.PZ}}
+                    </option>
+                </datalist>
+            </div>
+        </div>
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Field Number</label>
+                <input class="form-control" list="Field_Number" type="text" name="Field_Number" id="FieldNumber" ng-model="FieldNumber" placeholder="0">
+                <datalist name="Field_Number" id="Field_Number">
+                    <option value="{{FieldNumbers.FieldNumber}}" ng-repeat="FieldNumbers in tsfields"> {{FieldNumbers.FieldNumber}}</option>
+                </datalist>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Equipment Number</label>
+                <input class="form-control" list="Equipment_Number" type="text" name="Equipment_Number" id="EquipmentNumber" ng-model="EquipmentNumber" placeholder="12345">
+                <datalist name="Equipment_Number" id="Equipment_Number">
+                    <option value="{{Equipment.TechID}}" ng-repeat="Equipment in tsequipment"> {{Equipment.EquipmentNumber}} {{Equipment.EquipDescription}}</option>
+                </datalist>
+            </div>
+        </div>
+        <!--new group and row-->
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Equipment Meter Reading</label>
+                    <input class="form-control" type="number" name="EquipmentMeterReading" id="EquipmentMeterReading" placeholder="0" ng-model="EquipmentMeterReading">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Implement Number</label>
+                    <input class="form-control" list="Implement_Number" type="text" name="Implement_Number" id="ImplementNumber" ng-model="ImplementNumber" placeholder="12345">
+                    <datalist name="Implement_Number" id="Implement_Number">
+                        <option value="{{Implement.TechID}}" ng-repeat="Implement in tsimplement"> {{Implement.EquipmentNumber}} {{Implement.EquipDescription}}</option>
+                    </datalist>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input class="btn btn-md col-sm pull-right" type="submit" id="btnSave" value="Submit" ng-click="InsertTSEntry()" />
+            <input class="btn btn-md col-sm pull-right" type="button" id="btnCancel" value="Cancel" ng-click="CancelTSEntry()" />
+        </div>
+    </form>
+</div>

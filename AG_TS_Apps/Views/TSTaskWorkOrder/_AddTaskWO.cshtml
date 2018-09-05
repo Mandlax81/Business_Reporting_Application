@@ -1,0 +1,75 @@
+﻿<div class="container" id="AddNewTaskWO" role="form">
+    <form name="AddNewTaskWOForm">
+        <h2 id="AddUpdateNewTaskWOHeader">Add Task/WO</h2><!--header will be changed to Update when update button is clicked, logic in the AngularJS backend-->
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="Task_WO_ID">Task/WO ID</label>
+                <input class="form-control" type="text" name="Task_WO_ID" id="Task_WO_ID" ng-model="Task_WO_ID" placeholder="Task/WO ID ">
+                <span id="Task_WO_ID_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+            </div>
+            <div class="form-group col-md-6">
+                <label for="TaskType">Task Type</label>
+                <input class="form-control" list="Task_Type" type="text" name="Task_Type" id="TaskType" ng-model="TaskType" placeholder="Task Type">
+                <datalist name="Task_Type" id="Task_Type">
+                    <option value="{{TaskWO.TaskType}}" ng-repeat="TaskWO in tstasktype"> {{TaskWO.TaskType}}</option>
+                </datalist>
+                <span id="TaskType_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+            </div>
+        </div>
+
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="ExpenseType">Expense Type</label>
+                <input class="form-control" list="Expense_Type" type="text" name="Expense_Type" id="ExpenseType" ng-model="ExpenseType" placeholder="Expense Type">
+                <datalist name="Expense_Type" id="Expense_Type">
+                    <option value="{{TaskWO.ExpenseType}}" ng-repeat="TaskWO in tsexpensetype"> {{TaskWO.ExpenseType}}</option>
+                </datalist>
+                <span id="ExpenseType_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+            </div>
+            <div class="form-group col-md-6">
+                <label for="TaskDescription">Task Description</label>
+                <input class="form-control" type="text" name="TaskDescription" id="TaskDescription" ng-model="TaskDescription" placeholder="Task Description">
+                <span id="TaskDescription_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+            </div>
+        </div>
+
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="TaskPurpose">Task Purpose</label>
+                <input class="form-control" type="text" name="TaskPurpose" id="TaskPurpose" ng-model="TaskPurpose" placeholder="Task Purpose">
+                <span id="TaskPurpose_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+            </div>
+
+
+
+            <div class="form-group col-md-6" style="margin-bottom: 2.5%">
+            </div>
+
+            @*<div class="form-group col-md-6 form-check">
+                <label for="Active">Active</label>
+                <input class="form-check-input form-control" type="checkbox" name="Active" id="Active" ng-model="Active" placeholder="">
+            </div>*@
+        </div>
+
+
+        <div>
+            <!--on button click, calls AngularJS InsertEquipment() method -->
+            <input class="btn btn-md col-sm pull-right" type="submit" id="btnSave" value="Submit" ng-click="InsertTaskWO()" />
+            <!--on button click, calls AngularJS CancelEquipment() method -->
+            <input class="btn btn-md col-sm pull-right" type="button" id="btnCancel" value="Cancel" ng-click="CancelTaskWO()" />
+        </div>
+        <div class="form-row">
+            <span id="submit_Confirm" class="col-sm pull-right" style="margin-top:.7%;"></span>
+        </div>
+    </form>
+</div>

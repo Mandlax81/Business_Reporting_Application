@@ -1,0 +1,26 @@
+﻿<br />
+    <div class="container">
+        <!--Heading-->
+        <h2 id="maintOrdGroupHeader">Maintenance Order Groups</h2>
+
+        <!--makes input divs inline-->
+        <form class="form-inline">
+            <div class="form-group">
+            </div>
+
+            <!--click on the button to get all of the mo group data, which will then be displayed in a table-->
+            <button id="GetMaintOrdGroupButton" name="GetMaintOrdGroupButton" type="submit" class="btn btn-default" ng-click="GetMaintOrdGroup(); name = 'GetMaintOrdGroupButton'">MO Group</button>
+
+            <!--input/select from mo group id, get all mo group data by it's id-->
+            <div class="form-group">
+                <label class="sr-only" for="GetMaintOrdGroupByTA_CodeInput">Search Maintenance Order Group By ID</label>
+                <input id="GetMaintOrdGroupByTA_CodeInput" class="form-control" list="Get_Maint_Ord_Group_By_TA_Code_Input" name="Get_Maint_Ord_Group_By_TA_Code_Input" placeholder="TA Code/ID or Name" ng-model="TA_Code">
+                <datalist name="Get_Maint_Ord_Group_By_TA_Code_Input" id="Get_Maint_Ord_Group_By_TA_Code_Input">
+                    <option value="{{MaintOrdGroup.TA_Code}}" ng-repeat="MaintOrdGroup in tsmaintenanceordergroup"> {{MaintOrdGroup.TA_Code}} {{MaintOrdGroup.MaintOrdGrp}}</option>
+                </datalist>
+            </div>
+            <!--the second name = 'WhateverButton' relates to your switch button-->
+            <button id="GetMaintOrdGroupByTA_CodeButton" name="GetMaintOrdGroupByTA_CodeButton" type="submit" class="btn btn-default" ng-click="GetMaintOrdGroupByTA_Code(); name = 'GetMaintOrdGroupByTA_CodeButton'">Search</button>
+            <span id="TA_Code_Search_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+        </form>
+    </div>

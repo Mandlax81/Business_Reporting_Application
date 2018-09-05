@@ -1,0 +1,62 @@
+﻿<!--table section -->
+<div class="container" style="overflow-x:auto;">
+    <table class="table table-condensed table-responsive table-bordered table-hover">
+        <thead id="taskWOAll">            
+            <tr id="taskWOAllHeading">
+                <!-- when you click on this heading (i.e ng-click), it sorts the indicated field. It also adds an up and down arrow with the span class-->
+                <th ng-click="sort('Task_WO_ID')">
+                    TaskWO ID
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Task_WO_ID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('TaskType')">
+                    Task Type
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='TaskType'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('ExpenseType')">
+                    Expense Type
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='ExpenseType'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('TaskDescription')">
+                    Description
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='TaskDescription'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                <th ng-click="sort('TaskPurpose')">
+                    Purpose
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='CostCenter'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>
+                @*<th ng-click="sort('Active')">
+                    Active
+                    <span class="glyphicon sort-icon" ng-show="sortKey=='Active'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                </th>*@
+                <th>
+                    Option
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--the dir-paginate controller and itemsPerPage attribute (for pagination) sets the number of items in the table-->
+            <!--loop through object data and print it out, with only 10 items per page,
+                and allow sorting-->
+            <tr dir-paginate="TaskWO in tstaskwo|itemsPerPage:10|orderBy:sortKey:reverse">
+                <td>{{TaskWO.Task_WO_ID}}</td>
+                <td>{{TaskWO.TaskType}}</td>
+                <td>{{TaskWO.ExpenseType}}</td>
+                <td>{{TaskWO.TaskDescription}}</td>
+                <td>{{TaskWO.TaskPurpose}}</td>
+                @*<td>{{TaskWO.Active}}</td>*@
+
+                <td>
+                    <div class="btn btn-group-sm btn-block">
+                        <input onclick="topFunction()" class="btn" id="updateButton" type="button" value="update" ng-click="UpdateTaskWO(TaskWO)" />
+                        <input class="btn" id="deleteButton" type="button" value="delete" ng-click="DeleteTaskWO(TaskWO)" />
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--controls to paginate through data-->
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+</div>

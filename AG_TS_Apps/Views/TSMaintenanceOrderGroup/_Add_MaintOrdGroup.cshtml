@@ -1,0 +1,30 @@
+﻿<div class="container" id="AddNewMaintOrdGroup" role="form">
+    <form name="AddNewMaintOrdGroupForm">
+        <h2 id="AddUpdateNewMaintOrdGroupHeader">Add Maintenance Order Group</h2><!--header will be changed to Update when update button is clicked, logic in the AngularJS backend-->
+        <!--new row and groups within row-->
+        <div class="form-row">
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="TA_Code">Task Assignment Code/ID</label>
+                <input class="form-control" type="text" name="TA_Code" id="TA_Code" ng-model="TA_Code" placeholder="TA Code/ID">
+                <span id="TA_Code_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="MaintOrdGrp">Maintenance Order Group</label>
+                <input class="form-control" type="text" name="MaintOrdGrp" id="MaintOrdGrp" ng-model="MaintOrdGrp" placeholder="Maintenance Order Group">
+                <span id="MaintOrdGrp_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+            </div>
+        </div>
+        <div>
+
+            <input class="btn btn-md col-sm pull-right" type="submit" id="btnSave" value="Submit" ng-click="InsertMaintOrdGroup()" />
+            <!--on button click, calls AngularJS CancelWhatever() method -->
+            <input class="btn btn-md col-sm pull-right" type="button" id="btnCancel" value="Cancel" ng-click="CancelMaintOrdGroup()" />
+
+        </div>
+        <div class="form-row">
+            <span id="submit_Confirm" class="col-sm pull-right" style="margin-top:1%;"></span>
+        </div>
+
+    </form>
+</div>

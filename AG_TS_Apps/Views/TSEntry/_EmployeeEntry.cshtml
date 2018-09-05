@@ -1,0 +1,24 @@
+﻿<!--Search Employee section-->
+<div class="container table-condensed" id="EmployeeEntries">
+    
+    <!--Employee Entries Heading-->
+    <div>
+        <h2>Employee Entries</h2>
+    </div>
+
+    <!--Search Entry Bar-->
+    @Html.Partial("_SearchEntryBar")
+
+    <!--switch/if-else by the element's name-->
+    <div ng-switch="name">
+        <!--Entry By Date Table Partial View-->
+        @Html.Partial("_EntryByDateTable")
+        <!--Entry By Employee ID Table Partial View-->
+        @Html.Partial("_EntryByEmployeeIDTable")
+        <!--Entry By Date and Employee ID Table Partial View-->
+        @Html.Partial("_EntryByDateAndEmployeeIDTable")
+        <!--Entry By Previous Date Table Partial View-->
+        @Html.Partial("_EntryByPreviousDateTable")
+    </div>
+
+</div>

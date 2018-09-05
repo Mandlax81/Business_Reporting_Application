@@ -1,0 +1,63 @@
+﻿<br />
+    <div class="container">
+        <!--Heading-->
+        <h2 id="maintOrdActivityHeader">Maintenance Order Activities</h2>
+
+        <!--makes input divs inline-->
+        <form class="form-inline">
+            <div class="form-group">
+            </div>
+
+            <!--click on the button to get all of the mo group data, which will then be displayed in a table-->
+            <button id="GetMaintOrdActivityButton" name="GetMaintOrdActivityButton" type="submit" class="btn btn-default" ng-click="GetMaintOrdActivity(); name = 'GetMaintOrdActivityButton'">MO Activity</button>
+
+            <!--input/select from mo activity id, get all mo activity data by it's id-->
+            <div class="form-group">
+                <label class="sr-only" for="GetMaintOrdActivityByTA_RecID">Search Maintenance Order Activity By TA Rec ID</label>
+                <input id="GetMaintOrdActivityByTA_RecIDInput" class="form-control" list="Get_Maint_Ord_Activity_By_TA_Rec_ID_Input" name="Get_Maint_Ord_Activity_By_TA_Rec_ID_Input" placeholder="TA Rec ID" ng-model="TA_RecID">
+                <datalist name="Get_Maint_Ord_Activity_By_TA_Rec_ID_Input" id="Get_Maint_Ord_Activity_By_TA_Rec_ID_Input">
+                    <!--loop through all of the data for the dropdown, not just the particular object-->
+                    <option value="{{MaintOrdActivity.TA_RecID}}" ng-repeat="MaintOrdActivity in tsmaintenanceorderactivity">{{MaintOrdActivity.TA_Code}}</option>
+                </datalist>
+            </div>
+            <!--the second name = 'WhateverButton' relates to your switch button-->
+            <button id="GetMaintOrdActivityByTA_RecIDButton" name="GetMaintOrdActivityByTA_RecIDButton" type="submit" class="btn btn-default" ng-click="GetMaintOrdActivityByTA_RecID(); name = 'GetMaintOrdActivityByTA_RecIDButton'">Search ID</button>
+
+
+            <span id="GetMaintOrdActivityByTA_RecID_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+
+            <!--input/select from mo activity task, get all the tasks-->
+            <div class="form-group">
+                <label class="sr-only" for="GetMaintOrdActivityByTask">Search Maintenance Order Activity By Task</label>
+                <input id="GetMaintOrdActivityByTaskInput" class="form-control" list="Get_Maint_Ord_Activity_By_Task_Input" name="Get_Maint_Ord_Activity_By_Task_Input" placeholder="Task" ng-model="Task">
+                <datalist name="Get_Maint_Ord_Activity_By_Task_Input" id="Get_Maint_Ord_Activity_By_Task_Input">
+                    <option value="{{MaintOrdActivity.Task}}" ng-repeat="MaintOrdActivity in tsmaintordactivitytaskdistinct">{{MaintOrdActivity.Task}}</option>
+                </datalist>
+            </div>
+            <!--the second name = 'WhateverButton' relates to your switch button-->
+            <button id="GetMaintOrdActivityByTaskButton" name="GetMaintOrdActivityByTaskButton" type="submit" class="btn btn-default" ng-click="GetMaintOrdActivityByTask(); name = 'GetMaintOrdActivityByTaskButton'">Search Task</button>
+
+            <span id="GetMaintOrdActivityByTask_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+
+            <!--input/select from mo activity ta_code, get all ta codes-->
+            <div class="form-group">
+                <label class="sr-only" for="GetMaintOrdActivityByTA_Code">Search Maintenance Order Activity By TA Code</label>
+                <input id="GetMaintOrdActivityByTA_CodeInput" class="form-control" list="Get_Maint_Ord_Activity_By_TA_Code_Input" name="Get_Maint_Ord_Activity_By_TA_Code_Input" placeholder="TA Code" ng-model="TA_Code">
+                <datalist name="Get_Maint_Ord_Activity_By_TA_Code_Input" id="Get_Maint_Ord_Activity_By_TA_Code_Input">
+                    <option value="{{MaintOrdActivityByTA.TA_Code}}" ng-repeat="MaintOrdActivityByTA in tsmaintordactivityta_codedistinct">{{MaintOrdActivityByTA.TA_Code}} {{MaintOrdActivityByTA.Task}}</option>
+                </datalist>
+            </div>
+            <!--the second name = 'WhateverButton' relates to your switch button-->
+            <button id="GetMaintOrdActivityByTA_CodeButton" name="GetMaintOrdActivityByTA_CodeButton" type="submit" class="btn btn-default" ng-click="GetMaintOrdActivityByTA_Code(); name = 'GetMaintOrdActivityByTA_CodeButton'">Search Code</button>
+
+            <span id="GetMaintOrdActivityByTA_Code_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+
+
+
+
+
+
+        </form>
+    </div>

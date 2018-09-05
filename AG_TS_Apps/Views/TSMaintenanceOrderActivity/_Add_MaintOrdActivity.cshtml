@@ -1,0 +1,47 @@
+﻿<div class="container" id="AddNewMaintOrdActivity" role="form">
+    <form name="AddNewMaintOrdActivityForm">
+        <h2 id="AddUpdateNewMaintOrdActivityHeader">Add Maintenance Order Activity</h2><!--header will be changed to Update when update button is clicked, logic in the AngularJS backend-->
+        <!--new row and groups within row-->
+        <div class="form-row">
+
+            <!--use angularjs data binding to bind the front-end input model to the equivalent backend model-->
+            <div class="form-group col-md-6">
+                <label for="Task">Task</label>
+                <input class="form-control" list="Task_" type="text" name="Task_" id="Task" ng-model="Task" placeholder="Task">
+                <datalist name="Task_" id="Task_">
+                    <option value="{{MaintOrdActivity.Task}}" ng-repeat="MaintOrdActivity in tsmaintordactivitytaskdistinct"> {{MaintOrdActivity.Task}}</option>
+                </datalist>
+                <span id="Task_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="CombinedActivities">Combined Activities</label>
+                <input class="form-control" type="text" name="CombinedActivities" id="CombinedActivities" ng-model="CombinedActivities" placeholder="Combined Activities">
+                <span id="CombinedActivities_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="TA_Code">TA Code</label>
+                <input class="form-control" list="TA_Code_" type="text" name="TA_Code_" id="TA_Code" ng-model="TA_Code" placeholder="TA Code">
+                <datalist name="TA_Code_" id="TA_Code_">
+                    <option value="{{MaintOrdActivity.TA_Code}}" ng-repeat="MaintOrdActivity in tsmaintordactivityta_codedistinct">{{MaintOrdActivity.TA_Code}} {{MaintOrdActivity.Task}}</option>
+                </datalist>
+                <span id="TA_Code_Error" style="color:#ff6666;background-color:#ffe6e6;margin-top:3%;margin-left:.5%;"></span>
+            </div>
+        </div>
+        <div>
+            <!--on button click, calls AngularJS InsertWhatever() method -->
+            <input style="margin-top:2.6%;" class="btn btn-md col-sm pull-right" type="submit" id="btnSave" value="Submit" ng-click="InsertMaintOrdActivity()" />
+            <!--on button click, calls AngularJS CancelWhatever() method -->
+            <input style="margin-top:2.6%;" class="btn btn-md col-sm pull-right" type="button" id="btnCancel" value="Cancel" ng-click="CancelMaintOrdActivity()" />
+        </div>
+        <div class="form-row">
+            <span id="submit_Confirm" class="col-sm pull-right" style="margin-top:3.3%;"></span>
+        </div>
+
+
+    </form>
+</div>
+
+
+
+
+  

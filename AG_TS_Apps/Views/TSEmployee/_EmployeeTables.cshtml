@@ -1,0 +1,30 @@
+﻿<!--Tables section-->
+<!--switch out tables based on the angularjs name of the button that is clicked-->
+<div class="container-condensed" ng-switch="name">
+    <!--when the button, which has the angularjs name of "Whatever" is clicked,
+        call and display/"switch to" its related table-->
+    <!--switch to active employees table-->
+    <div ng-switch-when="GetEmployeesActiveButton">
+        @Html.Partial("_EmployeeActiveTable")
+    </div>
+
+    <!--switch to inactive employees table-->
+    <div ng-switch-when="GetEmployeesInactiveButton">
+        @Html.Partial("_EmployeeInactiveTable")
+    </div>
+
+    <!--switch to employees by id table-->
+    <div ng-switch-when="GetEmployeesByEmployeeIDButton">
+        @Html.Partial("_EmployeeByIDTable")
+    </div>
+
+    <!--switch to employees by id table-->
+    <div ng-switch-when="GetEmployeesByEmployeeIDInactiveButton">
+        @Html.Partial("_EmployeeByIDInactiveTable")
+    </div>
+
+    <!--switch to default table, loaded on initial page-load, reusing the active employees table-->
+    <div ng-switch-default>
+        @Html.Partial("_EmployeeActiveTable")
+    </div>
+</div>
